@@ -28,11 +28,11 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
       <Navigation />
       <Hero />
-      <Timeline />
       <Services />
+      <Timeline />
       <Contact />
       <Footer />
     </div>

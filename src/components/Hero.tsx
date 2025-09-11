@@ -13,27 +13,26 @@ const Hero = () => {
       <div className="absolute bottom-40 left-20 w-12 h-12 bg-tertiary/10 rounded-full floating"></div>
       <div className="absolute bottom-20 right-10 w-24 h-24 bg-primary/5 rounded-full floating-delayed"></div>
 
-      <div className="container mx-auto px-6 text-center relative z-10">
-        <div className="fade-in-up animate max-w-4xl mx-auto">
-          <div className="flex items-center justify-center mb-6">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="fade-in-up animate max-w-4xl">
+          <div className="flex items-center mb-6">
             <Sparkles className="w-8 h-8 text-accent mr-3" />
             <span className="text-accent font-medium">Next-Gen Technology</span>
             <Zap className="w-8 h-8 text-tertiary ml-3" />
           </div>
           
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Building the
-            <span className="block bg-gradient-to-r from-primary via-accent to-tertiary bg-clip-text text-transparent">
-              Future of Tech
+          <h1 className="text-5xl md:text-7xl mb-6 leading-tight">
+            <span className="block bg-gradient-to-r from-primary via-accent to-tertiary bg-clip-text text-transparent font-mono font-black tracking-wider">
+              TECHNORATZ'25
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-xl md:text-2xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 max-w-2xl leading-relaxed font-medium text-left">
             Empowering entrepreneurs and innovators with cutting-edge technology solutions 
             that transform ideas into reality.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <div className="flex flex-col sm:flex-row gap-4 items-start">
             <Button size="lg" className="btn-gradient group">
               Explore Solutions
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
