@@ -8,12 +8,12 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
-            <div className="text-2xl font-bold text-primary mb-4">
-              Tech<span className="text-accent">Venture</span>
+            <div className="text-2xl md:text-3xl font-bold text-primary mb-4 font-orbitron">
+              CODECRATZ <span className="text-accent">'25</span>
             </div>
             <p className="text-muted-foreground mb-6 max-w-md leading-relaxed">
-              Empowering the next generation of entrepreneurs with cutting-edge technology 
-              solutions and innovative strategies.
+              The flagship coding and creativity event. Build, learn, collaborate, and compete across
+              prelims, the main hackathon, and finals.
             </p>
             <div className="flex space-x-4">
               <div className="w-10 h-10 bg-gradient-to-r from-primary to-primary-glow rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
@@ -31,25 +31,25 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Services */}
+          {/* Quick Links */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Services</h4>
+            <h4 className="font-semibold text-foreground mb-4">Quick Links</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="hover:text-primary cursor-pointer transition-colors">Web Development</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Mobile Apps</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Cloud Solutions</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Data Analytics</li>
+              <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => document.getElementById('about')?.scrollIntoView({behavior:'smooth'})}>What is CODECRATZ</li>
+              <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => document.getElementById('timeline')?.scrollIntoView({behavior:'smooth'})}>Event Timeline</li>
+              <li className="hover:text-primary cursor-pointer transition-colors" onClick={() => document.getElementById('contact')?.scrollIntoView({behavior:'smooth'})}>Contact</li>
+              <li className="hover:text-primary cursor-pointer transition-colors">Rules & FAQs</li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Event Info */}
           <div>
-            <h4 className="font-semibold text-foreground mb-4">Company</h4>
+            <h4 className="font-semibold text-foreground mb-4">Event Info</h4>
             <ul className="space-y-2 text-muted-foreground">
-              <li className="hover:text-primary cursor-pointer transition-colors">About Us</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Careers</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Blog</li>
-              <li className="hover:text-primary cursor-pointer transition-colors">Contact</li>
+              <li>Registration: Opens Soon</li>
+              <li>Venue: To be announced</li>
+              <li>Support: <span className="text-foreground">support@codecratz.com</span></li>
+              <li>Sponsorships: sponsors@codecratz.com</li>
             </ul>
           </div>
         </div>
@@ -57,7 +57,7 @@ const Footer = () => {
         <Separator className="mb-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-muted-foreground">
-          <p>&copy; 2024 TechVenture. All rights reserved.</p>
+          <p>&copy; 2025 CODECRATZ. All rights reserved.</p>
           <div className="flex space-x-6 mt-4 md:mt-0">
             <span className="hover:text-primary cursor-pointer transition-colors">Privacy Policy</span>
             <span className="hover:text-primary cursor-pointer transition-colors">Terms of Service</span>

@@ -11,45 +11,38 @@ import {
 const timelineData = [
   {
     id: 1,
-    title: "Ideation Phase",
-    description: "Transform brilliant ideas into viable business concepts with our ideation workshops and strategic planning sessions.",
+    title: "Registrations Open",
+    description: "Sign up for CODECRATZ '25 and secure your spot. Limited seats available for teams and solo participants.",
     icon: Lightbulb,
-    year: "Phase 1"
+    year: "Step 1"
   },
   {
     id: 2,
-    title: "Product Development",
-    description: "Build robust, scalable solutions using cutting-edge technologies and best practices in software development.",
+    title: "Preliminary Rounds",
+    description: "Compete in online challenges to qualify for the main hackathon. Show your problem-solving and creativity.",
     icon: Rocket,
-    year: "Phase 2"
+    year: "Step 2"
   },
   {
     id: 3,
-    title: "Market Strategy",
-    description: "Develop comprehensive go-to-market strategies tailored to your target audience and industry dynamics.",
+    title: "Hackathon",
+    description: "Build innovative solutions with your team under time pressure. Mentors and workshops will guide you.",
     icon: Target,
-    year: "Phase 3"
+    year: "Step 3"
   },
   {
     id: 4,
-    title: "Team Building",
-    description: "Assemble world-class teams of experts who share your vision and drive for innovation.",
+    title: "Finals",
+    description: "Top teams present to a panel of judges. Demos, Q&A, and scoring based on impact, innovation, and execution.",
     icon: Users,
-    year: "Phase 4"
+    year: "Step 4"
   },
   {
     id: 5,
-    title: "Growth & Scaling",
-    description: "Scale your operations efficiently while maintaining quality and fostering sustainable growth.",
-    icon: TrendingUp,
-    year: "Phase 5"
-  },
-  {
-    id: 6,
-    title: "Market Leadership",
-    description: "Establish your brand as an industry leader through continuous innovation and strategic partnerships.",
+    title: "Prize Distribution",
+    description: "Winners are announced and prizes awarded. Celebrate excellence and network with sponsors and peers.",
     icon: Award,
-    year: "Phase 6"
+    year: "Step 5"
   }
 ];
 
@@ -80,15 +73,14 @@ const Timeline = () => {
     <section id="timeline" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our Journey to 
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+            Event 
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Success
+              Timeline
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Follow our proven methodology that has helped hundreds of startups 
-            transform their ideas into successful businesses.
+            Track the key milestones of CODECRATZ '25 from registrations to the grand prize distribution.
           </p>
         </div>
 

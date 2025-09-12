@@ -10,14 +10,13 @@ const Contact = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Let's Build Something
-            <span className="block bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">
-              Amazing Together
+            Get in Touch with the 
+            <span className="bg-gradient-to-r from-primary to-tertiary bg-clip-text text-transparent">
+              CODECRATZ Team
             </span>
           </h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Ready to transform your ideas into reality? Get in touch with our team 
-            and let's discuss your next project.
+            Questions about registration, timelines, rules, or sponsorships? Reach out and we’ll get back within 24 hours.
           </p>
         </div>
 
@@ -50,11 +49,15 @@ const Contact = () => {
                   <Input type="email" placeholder="john.doe@example.com" className="bg-white/50 border-white/20" />
                 </div>
                 
-                <div>
-                  <label className="block text-sm font-medium mb-2 text-foreground">
-                    Subject
-                  </label>
-                  <Input placeholder="Project Inquiry" className="bg-white/50 border-white/20" />
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-foreground">Team Name (optional)</label>
+                    <Input placeholder="The Innovators" className="bg-white/50 border-white/20" />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2 text-foreground">Topic</label>
+                    <Input placeholder="Registration / Rules / Sponsorship" className="bg-white/50 border-white/20" />
+                  </div>
                 </div>
                 
                 <div>
@@ -62,7 +65,7 @@ const Contact = () => {
                     Message
                   </label>
                   <Textarea 
-                    placeholder="Tell us about your project..."
+                    placeholder="Ask us anything about CODECRATZ '25..."
                     rows={5}
                     className="bg-white/50 border-white/20"
                   />
@@ -79,10 +82,9 @@ const Contact = () => {
           {/* Contact Info */}
           <div className="space-y-8">
             <div>
-              <h3 className="text-2xl font-bold mb-6 text-foreground">Get in touch</h3>
+              <h3 className="text-2xl font-bold mb-6 text-foreground">Organizer contacts</h3>
               <p className="text-muted-foreground mb-8 leading-relaxed">
-                We're here to help you bring your vision to life. Reach out to us through 
-                any of the channels below, and we'll get back to you within 24 hours.
+                Reach out via email for specific queries, or use the form to contact the organizing team.
               </p>
             </div>
 
@@ -93,8 +95,8 @@ const Contact = () => {
                     <Mail className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Email</h4>
-                    <p className="text-muted-foreground">hello@techventure.com</p>
+                    <h4 className="font-semibold text-foreground">General Support</h4>
+                    <p className="text-muted-foreground">support@codecratz.com</p>
                   </div>
                 </CardContent>
               </Card>
@@ -105,8 +107,8 @@ const Contact = () => {
                     <Phone className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Phone</h4>
-                    <p className="text-muted-foreground">+1 (555) 123-4567</p>
+                    <h4 className="font-semibold text-foreground">Registration Helpdesk</h4>
+                    <p className="text-muted-foreground">+91 00000 00000</p>
                   </div>
                 </CardContent>
               </Card>
@@ -117,8 +119,8 @@ const Contact = () => {
                     <MapPin className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="font-semibold text-foreground">Office</h4>
-                    <p className="text-muted-foreground">123 Innovation Street, Tech City</p>
+                    <h4 className="font-semibold text-foreground">Event Venue</h4>
+                    <p className="text-muted-foreground">To be announced</p>
                   </div>
                 </CardContent>
               </Card>

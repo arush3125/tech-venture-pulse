@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import Navigation from '@/components/Navigation';
 import Hero from '@/components/Hero';
+import AboutCodecratz from '@/components/AboutCodecratz';
 import Timeline from '@/components/Timeline';
-import Services from '@/components/Services';
+import PreviousWinners from '@/components/PreviousWinners';
 import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
@@ -31,8 +32,9 @@ const Index = () => {
     <div className="min-h-screen relative">
       <Navigation />
       <Hero />
-      <Services />
+      <AboutCodecratz />
       <Timeline />
+      <PreviousWinners />
       <Contact />
       <Footer />
     </div>
