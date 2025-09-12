@@ -26,8 +26,30 @@ const Navigation = () => {
     }`}>
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
-          <div className="text-2xl font-bold text-primary">
-            Tech<span className="text-accent">Venture</span>
+          <div className="flex items-center space-x-4">
+            <div className="text-2xl font-bold text-primary">
+              CODE<span className="text-accent">CRATZ</span>
+            </div>
+            {/* Space for 3 logos */}
+            <div className="flex items-center space-x-3">
+              <img 
+                src="/1.png" 
+                alt="Agnel Polytechnic Logo" 
+                className="w-12 h-12 object-contain rounded-lg"
+              />
+              
+              <img 
+                src="/2.png" 
+                alt="Codecratz Logo" 
+                className="w-12 h-12 object-contain rounded-lg"
+              />
+              
+              <img 
+                src="/3.png" 
+                alt="Sponsor Logo" 
+                className="w-12 h-12 object-contain rounded-lg"
+              />
+            </div>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
@@ -38,16 +60,34 @@ const Navigation = () => {
               Home
             </button>
             <button 
+              onClick={() => scrollToSection('what-is-codecratz')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              What is Codecratz
+            </button>
+            <button 
               onClick={() => scrollToSection('timeline')}
               className="text-foreground hover:text-primary transition-colors"
             >
               Timeline
             </button>
             <button 
-              onClick={() => scrollToSection('services')}
+              onClick={() => scrollToSection('problem-statements')}
               className="text-foreground hover:text-primary transition-colors"
             >
-              Services
+              Problem Statements
+            </button>
+            <button 
+              onClick={() => scrollToSection('rules')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              Rules
+            </button>
+            <button 
+              onClick={() => scrollToSection('about')}
+              className="text-foreground hover:text-primary transition-colors"
+            >
+              About
             </button>
             <button 
               onClick={() => scrollToSection('contact')}

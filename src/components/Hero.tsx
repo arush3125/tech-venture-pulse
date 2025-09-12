@@ -5,7 +5,7 @@ const Hero = () => {
   return (
     <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
       {/* Background gradient */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-purple-50/30 to-teal-50/50"></div>
+      <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/10 via-cyan-500/5 to-blue-500/10"></div>
       
       {/* Floating elements */}
       <div className="absolute top-20 left-10 w-20 h-20 bg-primary/10 rounded-full floating"></div>
@@ -23,22 +23,19 @@ const Hero = () => {
           
           <h1 className="text-5xl md:text-7xl mb-6 leading-tight">
             <span className="block bg-gradient-to-r from-primary via-accent to-tertiary bg-clip-text text-transparent font-mono font-black tracking-wider">
-              TECHNORATZ'25
+              CODECRATZ'25
             </span>
           </h1>
           
-          <p className="text-xl md:text-2xl bg-gradient-to-r from-cyan-400 via-purple-400 to-pink-400 bg-clip-text text-transparent mb-8 max-w-2xl leading-relaxed font-medium text-left">
-            Empowering entrepreneurs and innovators with cutting-edge technology solutions 
-            that transform ideas into reality.
+          <p className="text-xl md:text-2xl text-gray-200 mb-8 max-w-2xl leading-relaxed font-medium text-left">
+            Join the ultimate coding competition for college students. 
+            Showcase your programming skills and compete for exciting prizes!
           </p>
           
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <Button size="lg" className="btn-gradient group">
-              Explore Solutions
+              Register Now
               <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
-            <Button size="lg" variant="outline" className="btn-outline-gradient">
-              Watch Demo
             </Button>
           </div>
         </div>

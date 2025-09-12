@@ -1,55 +1,43 @@
 import { useEffect, useRef, useState } from 'react';
 import { 
-  Lightbulb, 
-  Rocket, 
-  Target, 
+  FileText, 
+  Upload, 
   Users, 
-  TrendingUp, 
-  Award 
+  Code 
 } from 'lucide-react';
 
 const timelineData = [
   {
     id: 1,
-    title: "Ideation Phase",
-    description: "Transform brilliant ideas into viable business concepts with our ideation workshops and strategic planning sessions.",
-    icon: Lightbulb,
-    year: "Phase 1"
+    title: "Release of Problem Statements",
+    description: "Showcase of all 6 Problem Statements",
+    icon: FileText,
+    date: "November 9, 2025",
+    year: "2025"
   },
   {
     id: 2,
-    title: "Product Development",
-    description: "Build robust, scalable solutions using cutting-edge technologies and best practices in software development.",
-    icon: Rocket,
-    year: "Phase 2"
+    title: "Submission of Ideas",
+    description: "Submit your ideas, in the form of pdf, in the given google form",
+    icon: Upload,
+    date: "December 15, 2025",
+    year: "2025"
   },
   {
     id: 3,
-    title: "Market Strategy",
-    description: "Develop comprehensive go-to-market strategies tailored to your target audience and industry dynamics.",
-    icon: Target,
-    year: "Phase 3"
+    title: "Announcement Of Shortlisted Teams",
+    description: "The top 4 teams from each problem statement will be selected for the Grand Finale",
+    icon: Users,
+    date: "December 20, 2025",
+    year: "2025"
   },
   {
     id: 4,
-    title: "Team Building",
-    description: "Assemble world-class teams of experts who share your vision and drive for innovation.",
-    icon: Users,
-    year: "Phase 4"
-  },
-  {
-    id: 5,
-    title: "Growth & Scaling",
-    description: "Scale your operations efficiently while maintaining quality and fostering sustainable growth.",
-    icon: TrendingUp,
-    year: "Phase 5"
-  },
-  {
-    id: 6,
-    title: "Market Leadership",
-    description: "Establish your brand as an industry leader through continuous innovation and strategic partnerships.",
-    icon: Award,
-    year: "Phase 6"
+    title: "24 Hour Live Hackathon Starts",
+    description: "A 24 Hour offline hackathon will be held determining the winner for each problem statement",
+    icon: Code,
+    date: "January 17, 2026",
+    year: "2026"
   }
 ];
 
@@ -81,14 +69,13 @@ const Timeline = () => {
       <div className="container mx-auto px-6">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            Our Journey to 
             <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Success
+              Event Timeline
             </span>
           </h2>
-          <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-            Follow our proven methodology that has helped hundreds of startups 
-            transform their ideas into successful businesses.
+          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+            Important dates and milestones for Codecratz 2025. Mark your calendar 
+            and don't miss any deadlines!
           </p>
         </div>
 
@@ -136,6 +123,12 @@ const Timeline = () => {
                     </div>
                   </div>
 
+                  <div className="mb-2">
+                    <span className="text-lg font-bold text-primary">
+                      {item.date}
+                    </span>
+                  </div>
+                  
                   <h3 className="text-xl font-bold mb-3 text-foreground">
                     {item.title}
                   </h3>
