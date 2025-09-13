@@ -73,7 +73,7 @@ const Timeline = () => {
               Event Timeline
             </span>
           </h2>
-          <p className="text-xl text-gray-200 max-w-2xl mx-auto">
+          <p className="text-xl text-foreground max-w-2xl mx-auto">
             Important dates and milestones for Codecratz 2025. Mark your calendar 
             and don't miss any deadlines!
           </p>

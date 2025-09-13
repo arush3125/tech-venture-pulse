@@ -127,6 +127,25 @@
   html {
     scroll-behavior: smooth;
   }
+
+  /* Global typography for headings */
+  h1, h2, h3, h4, .heading {
+    @apply font-poppins text-foreground;
+  }
+
+  h1 { @apply font-extrabold; }
+  h2 { @apply font-bold; }
+  h3 { @apply font-semibold; }
+
+  /* Ensure default text uses themed foreground (avoid pure black from defaults) */
+  p, li, span, small, label, a, div {
+    @apply text-foreground;
+  }
+
+  /* Common demo component title class */
+  .card-title {
+    @apply text-foreground;
+  }
 }
 
 @layer components {

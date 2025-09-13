@@ -7,18 +7,18 @@ const GradualBlurShowcase: React.FC = () => {
     <div className="space-y-12 py-8">
       {/* Original GradualBlur Example */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800">Original GradualBlur Component</h2>
-        <div style={{position: 'relative', height: 400, overflow: 'hidden'}} className="border rounded-lg">
+        <h2 className="text-2xl font-bold text-foreground font-poppins">Original GradualBlur Component</h2>
+        <div style={{position: 'relative', height: 400, overflow: 'hidden'}} className="border border-border rounded-lg bg-card">
           <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
             <div className="space-y-4">
-              <h3 className="text-xl font-semibold">Scrollable Content</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-foreground">Scrollable Content</h3>
+              <p className="text-muted-foreground">
                 This demonstrates the original GradualBlur component with basic blur functionality.
               </p>
               {Array.from({ length: 15 }, (_, i) => (
-                <div key={i} className="bg-blue-50 p-4 rounded border">
-                  <h4 className="font-medium">Content Block {i + 1}</h4>
-                  <p className="text-sm text-gray-600">
+                <div key={i} className="p-4 rounded border border-border bg-card">
+                  <h4 className="font-medium text-foreground">Content Block {i + 1}</h4>
+                  <p className="text-sm text-muted-foreground">
                     Sample content to demonstrate the blur effect at the bottom of the container.
                   </p>
                 </div>
@@ -40,18 +40,18 @@ const GradualBlurShowcase: React.FC = () => {
 
       {/* Advanced GradualBlur with Presets */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800">Advanced GradualBlur with Presets</h2>
+        <h2 className="text-2xl font-bold text-foreground font-poppins">Advanced GradualBlur with Presets</h2>
         
         {/* Subtle Preset */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Subtle Preset</h3>
-          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border rounded-lg">
+          <h3 className="text-lg font-semibold text-foreground">Subtle Preset</h3>
+          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border border-border rounded-lg bg-card">
             <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
               <div className="space-y-3">
-                <p className="text-gray-600">This uses the 'subtle' preset with reduced intensity.</p>
+                <p className="text-muted-foreground">This uses the 'subtle' preset with reduced intensity.</p>
                 {Array.from({ length: 10 }, (_, i) => (
-                  <div key={i} className="bg-green-50 p-3 rounded border">
-                    <p className="text-sm">Subtle blur effect - Content {i + 1}</p>
+                  <div key={i} className="p-3 rounded border border-border bg-card">
+                    <p className="text-sm text-muted-foreground">Subtle blur effect - Content {i + 1}</p>
                   </div>
                 ))}
               </div>
@@ -62,14 +62,14 @@ const GradualBlurShowcase: React.FC = () => {
 
         {/* Intense Preset */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Intense Preset</h3>
-          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border rounded-lg">
+          <h3 className="text-lg font-semibold text-foreground">Intense Preset</h3>
+          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border border-border rounded-lg bg-card">
             <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
               <div className="space-y-3">
-                <p className="text-gray-600">This uses the 'intense' preset with maximum blur strength.</p>
+                <p className="text-muted-foreground">This uses the 'intense' preset with maximum blur strength.</p>
                 {Array.from({ length: 10 }, (_, i) => (
-                  <div key={i} className="bg-purple-50 p-3 rounded border">
-                    <p className="text-sm">Intense blur effect - Content {i + 1}</p>
+                  <div key={i} className="p-3 rounded border border-border bg-card">
+                    <p className="text-sm text-muted-foreground">Intense blur effect - Content {i + 1}</p>
                   </div>
                 ))}
               </div>
@@ -80,14 +80,14 @@ const GradualBlurShowcase: React.FC = () => {
 
         {/* Smooth Preset with Animation */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Smooth Preset with Animation</h3>
-          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border rounded-lg">
+          <h3 className="text-lg font-semibold text-foreground">Smooth Preset with Animation</h3>
+          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border border-border rounded-lg bg-card">
             <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
               <div className="space-y-3">
-                <p className="text-gray-600">This uses the 'smooth' preset with animated transitions.</p>
+                <p className="text-muted-foreground">This uses the 'smooth' preset with animated transitions.</p>
                 {Array.from({ length: 10 }, (_, i) => (
-                  <div key={i} className="bg-orange-50 p-3 rounded border">
-                    <p className="text-sm">Smooth animated blur - Content {i + 1}</p>
+                  <div key={i} className="p-3 rounded border border-border bg-card">
+                    <p className="text-sm text-muted-foreground">Smooth animated blur - Content {i + 1}</p>
                   </div>
                 ))}
               </div>
@@ -103,14 +103,14 @@ const GradualBlurShowcase: React.FC = () => {
 
         {/* Custom Configuration */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Custom Configuration</h3>
-          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border rounded-lg">
+          <h3 className="text-lg font-semibold text-foreground">Custom Configuration</h3>
+          <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border border-border rounded-lg bg-card">
             <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
               <div className="space-y-3">
-                <p className="text-gray-600">Custom configuration with hover effects and exponential curve.</p>
+                <p className="text-muted-foreground">Custom configuration with hover effects and exponential curve.</p>
                 {Array.from({ length: 10 }, (_, i) => (
-                  <div key={i} className="bg-red-50 p-3 rounded border">
-                    <p className="text-sm">Custom blur with hover - Content {i + 1}</p>
+                  <div key={i} className="p-3 rounded border border-border bg-card">
+                    <p className="text-sm text-muted-foreground">Custom blur with hover - Content {i + 1}</p>
                   </div>
                 ))}
               </div>
@@ -131,14 +131,14 @@ const GradualBlurShowcase: React.FC = () => {
 
         {/* Top Position Example */}
         <div className="space-y-2">
-          <h3 className="text-lg font-semibold">Top Position Header Preset</h3>
+          <h3 className="text-lg font-semibold text-foreground">Top Position Header Preset</h3>
           <div style={{position: 'relative', height: 300, overflow: 'hidden'}} className="border rounded-lg">
             <div style={{ height: '100%', overflowY: 'auto', padding: '2rem' }}>
               <div className="space-y-3">
-                <p className="text-gray-600">Header preset with blur at the top of the container.</p>
+                <p className="text-muted-foreground">Header preset with blur at the top of the container.</p>
                 {Array.from({ length: 10 }, (_, i) => (
                   <div key={i} className="bg-indigo-50 p-3 rounded border">
-                    <p className="text-sm">Top blur effect - Content {i + 1}</p>
+                    <p className="text-sm text-muted-foreground">Top blur effect - Content {i + 1}</p>
                   </div>
                 ))}
               </div>
@@ -150,30 +150,30 @@ const GradualBlurShowcase: React.FC = () => {
 
       {/* Feature Comparison */}
       <section className="space-y-4">
-        <h2 className="text-2xl font-bold text-gray-800">Feature Comparison</h2>
+        <h2 className="text-2xl font-bold text-foreground font-poppins">Feature Comparison</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          <div className="bg-gray-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3">Original GradualBlur</h3>
+          <div className="p-6 rounded-lg border border-border bg-card">
+            <h3 className="text-lg font-semibold mb-3 text-foreground">Original GradualBlur</h3>
             <ul className="space-y-2 text-sm">
-              <li>✅ Basic blur effects</li>
-              <li>✅ Position control (top, bottom, left, right)</li>
-              <li>✅ Customizable strength and opacity</li>
-              <li>✅ Simple curve options</li>
-              <li>✅ Lightweight implementation</li>
+              <li className="text-muted-foreground">✅ Basic blur effects</li>
+              <li className="text-muted-foreground">✅ Position control (top, bottom, left, right)</li>
+              <li className="text-muted-foreground">✅ Customizable strength and opacity</li>
+              <li className="text-muted-foreground">✅ Simple curve options</li>
+              <li className="text-muted-foreground">✅ Lightweight implementation</li>
             </ul>
           </div>
-          <div className="bg-blue-50 p-6 rounded-lg">
-            <h3 className="text-lg font-semibold mb-3">Advanced GradualBlur</h3>
+          <div className="p-6 rounded-lg border border-border bg-card">
+            <h3 className="text-lg font-semibold mb-3 text-foreground">Advanced GradualBlur</h3>
             <ul className="space-y-2 text-sm">
-              <li>✅ All original features</li>
-              <li>✅ Preset configurations</li>
-              <li>✅ Mathematical precision with mathjs</li>
-              <li>✅ Animation and transition support</li>
-              <li>✅ Hover effects</li>
-              <li>✅ Responsive design support</li>
-              <li>✅ Intersection observer integration</li>
-              <li>✅ Advanced curve functions</li>
-              <li>✅ Page-level targeting</li>
+              <li className="text-muted-foreground">✅ All original features</li>
+              <li className="text-muted-foreground">✅ Preset configurations</li>
+              <li className="text-muted-foreground">✅ Mathematical precision with mathjs</li>
+              <li className="text-muted-foreground">✅ Animation and transition support</li>
+              <li className="text-muted-foreground">✅ Hover effects</li>
+              <li className="text-muted-foreground">✅ Responsive design support</li>
+              <li className="text-muted-foreground">✅ Intersection observer integration</li>
+              <li className="text-muted-foreground">✅ Advanced curve functions</li>
+              <li className="text-muted-foreground">✅ Page-level targeting</li>
             </ul>
           </div>
         </div>

@@ -21,33 +21,30 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'nav-gradient' : 'bg-transparent'
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 nav-gradient ${
+      isScrolled ? 'shadow-md' : ''
     }`}>
-      <div className="container mx-auto px-6 py-4">
+      <div className="container mx-auto px-6 py-6 max-w-full">
         <div className="flex items-center justify-between">
-          <div className="flex items-center space-x-4">
-            <div className="text-2xl font-bold text-primary">
-              CODE<span className="text-accent">CRATZ</span>
+          <div className="flex items-center space-x-6">
+            <div className="text-2xl md:text-3xl font-bold text-primary tracking-wide">
+              CODE<span className="text-accent">CRATZ</span> <span className="text-accent">'25</span>
             </div>
-            {/* Space for 3 logos */}
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center space-x-6">
               <img 
                 src="/1.png" 
                 alt="Agnel Polytechnic Logo" 
-                className="w-12 h-12 object-contain rounded-lg"
+                className="w-24 h-24 object-contain rounded-lg"
               />
-              
               <img 
                 src="/2.png" 
                 alt="Codecratz Logo" 
-                className="w-12 h-12 object-contain rounded-lg"
+                className="w-24 h-24 object-contain rounded-lg"
               />
-              
               <img 
                 src="/3.png" 
                 alt="Sponsor Logo" 
-                className="w-12 h-12 object-contain rounded-lg"
+                className="w-24 h-24 object-contain rounded-lg"
               />
             </div>
           </div>
@@ -98,7 +95,7 @@ const Navigation = () => {
           </div>
 
           <Button className="btn-gradient">
-            Get Started
+            Register Now
           </Button>
         </div>
       </div>
