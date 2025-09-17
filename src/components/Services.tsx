@@ -1,15 +1,17 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import React, { useState } from 'react';
+import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
 import { 
-  Wallet, 
+  Smartphone, 
   Car, 
-  Calendar, 
-  Smartphone,
-  Shield,
-  Gamepad2,
+  Shield, 
+  Zap, 
+  CheckCircle, 
   Eye,
-  ArrowRight,
-  CheckCircle
+  X,
+  Wallet,
+  Calendar,
+  Gamepad2
 } from 'lucide-react';
 
 const problemStatements = [
@@ -106,6 +108,12 @@ const problemStatements = [
 ];
 
 const Services = () => {
+  const [selectedProblem, setSelectedProblem] = useState<number | null>(null);
+
+  const truncateText = (text: string, maxLength: number = 100) => {
+    return text.length > maxLength ? text.substring(0, maxLength) + "..." : text;
+  };
+
   return (
     <section id="problem-statements" className="py-20 relative">
       <div className="container mx-auto px-6">
@@ -115,7 +123,7 @@ const Services = () => {
               PROBLEM STATEMENTS
             </span>
           </h2>
-          <p className="text-xl text-gray-200 max-w-3xl mx-auto">
+          <p className="text-xl max-w-3xl mx-auto body-text">
             Innovative technology solutions addressing real-world challenges. 
             Choose your problem statement and build the future.
           </p>
@@ -138,12 +146,17 @@ const Services = () => {
                       </div>
                       <div>
                         <div className="text-sm font-bold text-accent mb-1">{problem.id}</div>
-                        <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                        <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
                           {problem.title}
                         </h3>
                       </div>
                     </div>
-                    <Button size="sm" variant="outline" className="group-hover:bg-primary group-hover:text-white transition-all">
+                    <Button 
+                      size="sm" 
+                      variant="outline" 
+                      className="group-hover:bg-primary group-hover:text-white transition-all"
+                      onClick={() => setSelectedProblem(index)}
+                    >
                       <Eye className="w-4 h-4 mr-1" />
                       VIEW MORE
                     </Button>
@@ -153,33 +166,96 @@ const Services = () => {
                     {problem.subtitle}
                   </p>
                   
-                  <p className="text-muted-foreground leading-relaxed mb-6 flex-grow">
-                    {problem.description}
+                  <p className="leading-relaxed mb-6 flex-grow body-text">
+                    {truncateText(problem.description)}
                   </p>
                   
                   <div className="space-y-2">
-                    <h4 className="text-sm font-bold text-foreground mb-3">Desired Solution:</h4>
+                    <h4 className="text-sm font-bold mb-3">Desired Solution:</h4>
                     <div className="space-y-2">
-                      {problem.features.map((feature, featureIndex) => (
+                      {problem.features.slice(0, 2).map((feature, featureIndex) => (
                         <div key={featureIndex} className="flex items-start">
                           <CheckCircle className="w-4 h-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
-                          <span className="text-sm text-muted-foreground">{feature}</span>
+                          <span className="text-sm muted-text">{feature}</span>
                         </div>
                       ))}
+                      {problem.features.length > 2 && (
+                        <div className="text-xs text-muted-foreground">
+                          +{problem.features.length - 2} more features...
+                        </div>
+                      )}
                     </div>
                   </div>
                   
-                  <div className="mt-6 pt-4 border-t border-border">
-                    <Button className="w-full btn-gradient group">
-                      Choose This Challenge
-                      <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </Button>
-                  </div>
                 </CardContent>
               </Card>
             );
           })}
         </div>
+
+        {/* Modal for expanded problem statement */}
+        {selectedProblem !== null && (
+          <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4 animate-in fade-in duration-300">
+            <div className="bg-card rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto animate-in slide-in-from-bottom-4 duration-500">
+              <div className="p-8">
+                <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-center">
+                    <div className={`w-16 h-16 bg-gradient-to-r ${problemStatements[selectedProblem].gradient} rounded-2xl flex items-center justify-center mr-4`}>
+                      {React.createElement(problemStatements[selectedProblem].icon, { className: "w-8 h-8 text-white" })}
+                    </div>
+                    <div>
+                      <div className="text-sm font-bold text-accent mb-1">{problemStatements[selectedProblem].id}</div>
+                      <h3 className="text-2xl font-bold text-foreground">
+                        {problemStatements[selectedProblem].title}
+                      </h3>
+                    </div>
+                  </div>
+                  <Button 
+                    size="sm" 
+                    variant="ghost" 
+                    onClick={() => setSelectedProblem(null)}
+                    className="hover:bg-red-100 hover:text-red-600"
+                  >
+                    <X className="w-5 h-5" />
+                  </Button>
+                </div>
+                
+                <p className="text-accent font-medium mb-6 text-lg">
+                  {problemStatements[selectedProblem].subtitle}
+                </p>
+                
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold mb-4">Problem Description</h4>
+                  <p className="leading-relaxed text-foreground">
+                    {problemStatements[selectedProblem].description}
+                  </p>
+                </div>
+                
+                <div className="mb-8">
+                  <h4 className="text-lg font-bold mb-4">Desired Solution Features</h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    {problemStatements[selectedProblem].features.map((feature, featureIndex) => (
+                      <div key={featureIndex} className="flex items-start">
+                        <CheckCircle className="w-5 h-5 text-accent mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-foreground">{feature}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+                
+                <div className="flex justify-center">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-primary to-accent hover:from-primary-dark hover:to-accent-dark"
+                    onClick={() => setSelectedProblem(null)}
+                  >
+                    Choose This Problem Statement
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
       </div>
     </section>
   );

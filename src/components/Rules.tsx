@@ -1,25 +1,39 @@
-import { Card, CardContent } from '@/components/ui/card';
-import { Button } from '@/components/ui/button';
+import { Card, CardContent } from './ui/card';
+import { Button } from './ui/button';
 import { 
-  FileText, 
-  MessageCircle, 
-  Download, 
+  Shield, 
   Users, 
   Clock, 
   Trophy,
   CheckCircle,
-  AlertCircle
+  AlertCircle,
+  FileText,
+  Download,
+  MessageCircle
 } from 'lucide-react';
+import CountdownCard from './CountdownCard';
+import { useCountdown } from '../hooks/useCountdown';
 
 const Rules = () => {
+  // Calculate target dates from current date
+  const now = new Date();
+  const registrationDeadline = new Date(now.getTime() + (2 * 30 * 24 * 60 * 60 * 1000)); // 2 months
+  const eventStart = new Date(now.getTime() + (3 * 30 * 24 * 60 * 60 * 1000)); // 3 months
+  const resultsDate = new Date(now.getTime() + (3 * 30 * 24 * 60 * 60 * 1000) + (2 * 24 * 60 * 60 * 1000)); // 3 months 2 days
+
+  // Get countdown values
+  const registrationCountdown = useCountdown(registrationDeadline);
+  const eventCountdown = useCountdown(eventStart);
+  const resultsCountdown = useCountdown(resultsDate);
+
   return (
-    <section id="rules" className="py-20 relative bg-gray-50">
+    <section id="rules" className="py-20 relative">
       <div className="container mx-auto px-6">
         <div className="text-center mb-16 fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-black">
             Rules & <span className="bg-gradient-to-r from-primary via-accent to-tertiary bg-clip-text text-transparent">Guidelines</span>
           </h2>
-          <p className="text-xl text-foreground max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl text-white max-w-3xl mx-auto leading-relaxed">
             Please read the following rules and guidelines carefully before participating in Codecratz 2025.
           </p>
         </div>
@@ -130,21 +144,39 @@ const Rules = () => {
               <Clock className="w-8 h-8 text-primary mr-3" />
               <h3 className="text-2xl font-bold text-foreground">Important Deadlines</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
-              <div>
-                <div className="text-3xl font-bold text-primary mb-2">[Date]</div>
-                <div className="text-foreground font-semibold">Registration Deadline</div>
-                <div className="text-muted-foreground text-sm">Last date to register</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+              <div className="text-center">
+                <CountdownCard 
+                  days={registrationCountdown.days}
+                  hours={registrationCountdown.hours}
+                  minutes={registrationCountdown.minutes}
+                />
+                <div className="mt-4">
+                  <div className="text-foreground font-semibold">Registration Deadline</div>
+                  <div className="text-muted-foreground text-sm">Last date to register</div>
+                </div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-accent mb-2">[Date]</div>
-                <div className="text-foreground font-semibold">Event Start</div>
-                <div className="text-muted-foreground text-sm">Competition begins</div>
+              <div className="text-center">
+                <CountdownCard 
+                  days={eventCountdown.days}
+                  hours={eventCountdown.hours}
+                  minutes={eventCountdown.minutes}
+                />
+                <div className="mt-4">
+                  <div className="text-foreground font-semibold">Event Start</div>
+                  <div className="text-muted-foreground text-sm">Competition begins</div>
+                </div>
               </div>
-              <div>
-                <div className="text-3xl font-bold text-tertiary mb-2">[Date]</div>
-                <div className="text-foreground font-semibold">Final Presentation</div>
-                <div className="text-muted-foreground text-sm">Results announcement</div>
+              <div className="text-center">
+                <CountdownCard 
+                  days={resultsCountdown.days}
+                  hours={resultsCountdown.hours}
+                  minutes={resultsCountdown.minutes}
+                />
+                <div className="mt-4">
+                  <div className="text-foreground font-semibold">Final Presentation</div>
+                  <div className="text-muted-foreground text-sm">Results announcement</div>
+                </div>
               </div>
             </div>
           </CardContent>

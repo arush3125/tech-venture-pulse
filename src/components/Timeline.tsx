@@ -1,145 +1,149 @@
-import { useEffect, useRef, useState } from 'react';
-import { 
-  FileText, 
-  Upload, 
-  Users, 
-  Code 
-} from 'lucide-react';
-
-const timelineData = [
-  {
-    id: 1,
-    title: "Release of Problem Statements",
-    description: "Showcase of all 6 Problem Statements",
-    icon: FileText,
-    date: "November 9, 2025",
-    year: "2025"
-  },
-  {
-    id: 2,
-    title: "Submission of Ideas",
-    description: "Submit your ideas, in the form of pdf, in the given google form",
-    icon: Upload,
-    date: "December 15, 2025",
-    year: "2025"
-  },
-  {
-    id: 3,
-    title: "Announcement Of Shortlisted Teams",
-    description: "The top 4 teams from each problem statement will be selected for the Grand Finale",
-    icon: Users,
-    date: "December 20, 2025",
-    year: "2025"
-  },
-  {
-    id: 4,
-    title: "24 Hour Live Hackathon Starts",
-    description: "A 24 Hour offline hackathon will be held determining the winner for each problem statement",
-    icon: Code,
-    date: "January 17, 2026",
-    year: "2026"
-  }
-];
+import React, { useEffect, useState } from 'react';
+import { Card, CardContent } from './ui/card';
+import { Calendar, Clock, Trophy, Users, CheckCircle } from 'lucide-react';
 
 const Timeline = () => {
-  const [visibleItems, setVisibleItems] = useState<number[]>([]);
-  const timelineRef = useRef<HTMLDivElement>(null);
+  const [visibleEvents, setVisibleEvents] = useState<number[]>([]);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const index = parseInt(entry.target.getAttribute('data-index') || '0');
-            setVisibleItems(prev => [...prev, index]);
+    const handleScroll = () => {
+      const scrollPosition = window.scrollY;
+      const windowHeight = window.innerHeight;
+      const timelineSection = document.getElementById('timeline');
+      
+      if (timelineSection) {
+        const sectionTop = timelineSection.offsetTop;
+        const sectionHeight = timelineSection.offsetHeight;
+        const relativeScroll = scrollPosition - sectionTop + windowHeight * 0.5;
+        
+        // Calculate which events should be visible based on scroll position
+        const eventHeight = sectionHeight / 5; // 5 events total
+        const newVisibleEvents: number[] = [];
+        
+        for (let i = 0; i < 5; i++) {
+          if (relativeScroll > i * eventHeight * 0.8) {
+            newVisibleEvents.push(i);
           }
-        });
-      },
-      { threshold: 0.3 }
-    );
+        }
+        
+        setVisibleEvents(newVisibleEvents);
+      }
+    };
 
-    const timelineItems = timelineRef.current?.querySelectorAll('.timeline-item');
-    timelineItems?.forEach((item) => observer.observe(item));
-
-    return () => observer.disconnect();
+    handleScroll(); // Initial check
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  const timelineEvents = [
+    {
+      date: "January 15, 2025",
+      title: "Registration Opens",
+      description: "Team registration begins. Form your teams and register for the hackathon.",
+      icon: Users,
+      status: "upcoming"
+    },
+    {
+      date: "February 1, 2025", 
+      title: "Problem Statements Release",
+      description: "Official problem statements will be released to all registered teams.",
+      icon: CheckCircle,
+      status: "upcoming"
+    },
+    {
+      date: "February 15, 2025",
+      title: "Registration Closes", 
+      description: "Last date for team registration. No new registrations after this date.",
+      icon: Clock,
+      status: "upcoming"
+    },
+    {
+      date: "March 1-2, 2025",
+      title: "Main Hackathon Event",
+      description: "48-hour coding marathon begins. Teams work on their innovative solutions.",
+      icon: Trophy,
+      status: "upcoming"
+    },
+    {
+      date: "March 3, 2025",
+      title: "Final Presentations & Results",
+      description: "Teams present their solutions. Winners announced and prizes distributed.",
+      icon: Trophy,
+      status: "upcoming"
+    }
+  ];
 
   return (
     <section id="timeline" className="py-20 relative">
       <div className="container mx-auto px-6">
-        <div className="text-center mb-16">
+        <div className="text-center mb-16 fade-in-up">
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
-            <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              Event Timeline
-            </span>
+            <span className="bg-gradient-to-r from-primary via-accent to-tertiary bg-clip-text text-transparent">Event Timeline</span>
           </h2>
-          <p className="text-xl text-foreground max-w-2xl mx-auto">
-            Important dates and milestones for Codecratz 2025. Mark your calendar 
-            and don't miss any deadlines!
+          <p className="text-xl text-foreground max-w-3xl mx-auto leading-relaxed">
+            Important dates and milestones for Codecratz 2025. Mark your calendar and don't miss any deadlines!
           </p>
         </div>
 
-        <div ref={timelineRef} className="relative max-w-4xl mx-auto">
-          {/* Timeline line */}
-          <div className="absolute left-1/2 top-0 bottom-0 w-1 timeline-line transform -translate-x-1/2"></div>
-
-          {timelineData.map((item, index) => {
-            const Icon = item.icon;
-            const isVisible = visibleItems.includes(index);
-            const isLeft = index % 2 === 0;
-
-            return (
-              <div
-                key={item.id}
-                data-index={index}
-                className={`timeline-item relative flex items-center mb-16 ${
-                  isLeft ? 'justify-end pr-8' : 'justify-start pl-8'
-                }`}
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-1/2 top-1/2 timeline-dot transform -translate-x-1/2 -translate-y-1/2 z-10">
-                  <Icon className="w-3 h-3 text-white" />
-                </div>
-
-                {/* Content card */}
-                <div className={`card-gradient p-6 rounded-2xl max-w-md transition-all duration-700 ${
-                  isVisible 
-                    ? 'opacity-100 translate-y-0' 
-                    : 'opacity-0 translate-y-8'
-                } ${isLeft ? 'text-right' : 'text-left'}`}>
+        <div className="max-w-4xl mx-auto">
+          <div className="relative">
+            {/* Timeline line */}
+            <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-tertiary"></div>
+            
+            {timelineEvents.map((event, index) => {
+              const isVisible = visibleEvents.includes(index);
+              return (
+                <div 
+                  key={index} 
+                  className={`relative flex items-start mb-12 transition-all duration-700 ease-out ${
+                    isVisible 
+                      ? 'opacity-100 translate-y-0' 
+                      : 'opacity-0 translate-y-8'
+                  }`}
+                >
+                  {/* Timeline dot */}
+                  <div 
+                    className={`flex-shrink-0 w-16 h-16 bg-gradient-to-r from-primary to-accent rounded-full flex items-center justify-center mr-8 relative z-10 shadow-lg transition-all duration-700 ease-out ${
+                      isVisible ? 'scale-100' : 'scale-0'
+                    }`}
+                  >
+                    <event.icon className="w-8 h-8 text-white" />
+                  </div>
                   
-                  <div className={`flex items-center mb-4 ${
-                    isLeft ? 'justify-end' : 'justify-start'
-                  }`}>
-                    <div className={`flex items-center ${
-                      isLeft ? 'flex-row-reverse' : 'flex-row'
-                    }`}>
-                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-accent rounded-xl flex items-center justify-center mr-4">
-                        <Icon className="w-6 h-6 text-white" />
+                  {/* Content */}
+                  <Card 
+                    className={`flex-1 card-gradient group cursor-pointer hover:scale-105 transition-all duration-700 ease-out ${
+                      isVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'
+                    }`}
+                  >
+                  <CardContent className="p-6">
+                    <div className="flex items-start justify-between mb-4">
+                      <div>
+                        <div className="flex items-center mb-2">
+                          <Calendar className="w-5 h-5 text-primary mr-2" />
+                          <span className="text-primary font-semibold">{event.date}</span>
+                        </div>
+                        <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors">
+                          {event.title}
+                        </h3>
                       </div>
-                      <span className="text-sm font-medium text-primary bg-primary/10 px-3 py-1 rounded-full">
-                        {item.year}
-                      </span>
+                      <div className={`px-3 py-1 rounded-full text-xs font-medium ${
+                        event.status === 'completed' 
+                          ? 'bg-green-100 text-green-800' 
+                          : 'bg-blue-100 text-blue-800'
+                      }`}>
+                        {event.status === 'completed' ? 'Completed' : 'Upcoming'}
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="mb-2">
-                    <span className="text-lg font-bold text-primary">
-                      {item.date}
-                    </span>
-                  </div>
-                  
-                  <h3 className="text-xl font-bold mb-3 text-foreground">
-                    {item.title}
-                  </h3>
-                  
-                  <p className="text-muted-foreground leading-relaxed">
-                    {item.description}
-                  </p>
-                </div>
+                    <p className="text-muted-foreground leading-relaxed">
+                      {event.description}
+                    </p>
+                  </CardContent>
+                </Card>
               </div>
-            );
-          })}
+              );
+            })}
+          </div>
         </div>
       </div>
     </section>

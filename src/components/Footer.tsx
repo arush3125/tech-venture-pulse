@@ -1,9 +1,9 @@
 import { Separator } from '@/components/ui/separator';
-import { Github, Twitter, Linkedin, Instagram } from 'lucide-react';
+import { Github, Twitter, Linkedin, Instagram, MessageCircle, FileText } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className="py-16 bg-gradient-to-r from-background to-card relative">
+    <footer id="contact" className="py-16 bg-gradient-to-r from-background to-card relative">
       <div className="container mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
@@ -18,8 +18,11 @@ const Footer = () => {
               prelims, the main hackathon, and finals.
             </p>
             <div className="flex space-x-4">
-              <a href="https://github.com/techventurepulse" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-primary to-primary-glow rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
-                <Github className="w-5 h-5 text-white" />
+              <a href="https://chat.whatsapp.com/E6TTOOGzIg851sWKDF2yUA" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-green-500 to-green-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <MessageCircle className="w-5 h-5 text-white" />
+              </a>
+              <a href="/TPP Brochure_SH2025_Humanities.pdf" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-red-500 to-red-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
+                <FileText className="w-5 h-5 text-white" />
               </a>
               <a href="https://instagram.com/techventurepulse" target="_blank" rel="noopener noreferrer" className="w-10 h-10 bg-gradient-to-r from-pink-500 to-purple-600 rounded-lg flex items-center justify-center hover:scale-110 transition-transform cursor-pointer">
                 <Instagram className="w-5 h-5 text-white" />

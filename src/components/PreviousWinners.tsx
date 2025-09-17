@@ -92,7 +92,7 @@ const PreviousWinners = () => {
                   <div className="text-xs text-muted-foreground mb-2">Team Members:</div>
                   <div className="flex flex-wrap gap-1">
                     {winner.members.map((member, idx) => (
-                      <span key={idx} className="text-xs bg-white/50 px-2 py-1 rounded text-foreground">
+                      <span key={idx} className="text-xs bg-primary/20 px-2 py-1 rounded text-foreground">
                         {member}
                       </span>
                     ))}

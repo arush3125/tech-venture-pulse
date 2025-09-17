@@ -5,9 +5,9 @@ import WhatIsCodecratz from '@/components/WhatIsCodecratz';
 import Timeline from '@/components/Timeline';
 import Services from '@/components/Services';
 import Rules from '@/components/Rules';
+import Testimonials from '@/components/Testimonials';
 import About from '@/components/About';
 import MapLocation from '@/components/MapLocation';
-import Contact from '@/components/Contact';
 import Footer from '@/components/Footer';
 
 const Index = () => {
@@ -39,9 +39,9 @@ const Index = () => {
       <Timeline />
       <Services />
       <Rules />
+      <Testimonials />
       <About />
       <MapLocation />
-      <Contact />
       <Footer />
     </div>
   );

@@ -1,21 +1,9 @@
 import { Button } from '@/components/ui/button';
 import { ArrowRight, Sparkles, Zap } from 'lucide-react';
-import Squares from '@/components/Squares';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden pt-20">
-      {/* 3D Squares background */}
-      <div className="absolute inset-0">
-        <Squares
-          speed={0.4}
-          squareSize={56}
-          direction="diagonal"
-          borderColor="rgba(99, 102, 241, 0.18)"
-          hoverFillColor="rgba(56, 189, 248, 0.12)"
-          className=""
-        />
-      </div>
+    <section id="home" className="min-h-screen flex items-center justify-center relative overflow-hidden">
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="flex items-center justify-center">
@@ -38,7 +26,11 @@ const Hero = () => {
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 items-center justify-center">
-              <Button size="lg" className="btn-gradient group">
+              <Button 
+                size="lg" 
+                className="btn-gradient group"
+                onClick={() => window.open('https://docs.google.com/forms/d/e/1FAIpQLSdjxl9o80DBheWdYoDXvGJSRJ5JmgcX7QadAJA2denXll1Ntg/viewform?usp=sharing&ouid=106879828477687512783', '_blank')}
+              >
                 Register Now
                 <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </Button>
