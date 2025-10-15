@@ -1,0 +1,20 @@
+{
+  "name": "Codecratz - Tech & Innovation",
+  "short_name": "Codecratz",
+  "description": "Codecratz - Where Technology Meets Innovation. Building the future with cutting-edge solutions.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#000000",
+  "theme_color": "#000000",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ],
+  "categories": ["technology", "innovation", "education"],
+  "lang": "en-US",
+  "dir": "ltr"
+}
